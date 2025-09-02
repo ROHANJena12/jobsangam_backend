@@ -304,10 +304,14 @@ CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
 <<<<<<< HEAD
+<<<<<<< HEAD
         "LOCATION": os.getenv("REDIS_URL", "redis://redis:6379/0"),
 =======
         "LOCATION": "redis://redis:6379/0",  # use docker service name, not 127.0.0.1
 >>>>>>> f4d888fc2fcc35ed58bf81bf6027b49584c66925
+=======
+        "LOCATION": "redis://redis:6379/0",  # use docker service name, not 127.0.0.1
+>>>>>>> 07e49d5da2e97852ecb4e7b8137f51a5de5ab345
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         },
