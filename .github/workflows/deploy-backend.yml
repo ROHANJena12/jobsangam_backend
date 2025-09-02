@@ -1,0 +1,14 @@
+name: Deploy Backend
+
+on:
+  push:
+    branches: [ "backend" ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - name: Run deploy script
+        run: bash /opt/deploy-backend.sh
+
