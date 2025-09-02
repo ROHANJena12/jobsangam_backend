@@ -2,13 +2,13 @@ name: Deploy Backend
 
 on:
   push:
-    branches: [ "backend" ]
-  workflow_dispatch:
+    branches: [ "main" ]   # listens on main branch
+  workflow_dispatch:        # allows manual run
 
 jobs:
   deploy:
     runs-on: self-hosted
     steps:
-      - name: Run deploy script
+      - name: Run backend deploy script
         run: bash /opt/deploy-backend.sh
 
