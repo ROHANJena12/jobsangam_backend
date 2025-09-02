@@ -2,13 +2,21 @@ name: Deploy Backend
 
 on:
   push:
-    branches: [ "main" ]   # listens on main branch
-  workflow_dispatch:        # allows manual run
+    branches: [ "main" ]
+  workflow_dispatch:
 
 jobs:
   deploy:
     runs-on: self-hosted
+
     steps:
       - name: Run backend deploy script
         run: bash /opt/deploy-backend.sh
+
+      - name: Health check backend
+        run: |
+          echo "Waiting for backend to boot..."
+          sleep 15
+          curl -fsS http://127.0.0.1:8000/api/hello/ >/dev/null
+          curl -fsS http://34.197.36.232/api/hello/ >/dev/null
 
